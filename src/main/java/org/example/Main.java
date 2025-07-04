@@ -39,11 +39,11 @@ public class Main4 {
                     if(initialBalanceType==1) {
                         System.out.println("Enter initial balance");
                         balance = scanner.nextDouble();
+                        scanner.nextLine();
                     }
                     else{
                         balance = 0;
                     };
-                    scanner.nextLine();
                     System.out.println("What type of account do you want to add?");
                     System.out.println("1. Current Account");
                     System.out.println("2. Savings Account");
