@@ -1,9 +1,9 @@
-package org.example;
+package Inheritance;
 
 
 import java.util.Scanner;
 
-public class Main {
+public class Main4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Account[] accounts = new Account[50];
@@ -28,12 +28,21 @@ public class Main {
             switch (choice) {
                 case 1:
                     int type;
+                    int initialBalanceType = 0;
                     System.out.println("Enter account name");
                     String name = scanner.nextLine();
                     System.out.println("Enter account id");
                     id = scanner.nextLine();
-                    System.out.println("Enter account balance");
-                    balance = scanner.nextDouble();
+                    System.out.println("Do you want to have initial deposit amount?\n1.Yes\n2.No");
+                    initialBalanceType = scanner.nextInt();
+                    scanner.nextLine();
+                    if(initialBalanceType==1) {
+                        System.out.println("Enter initial balance");
+                        balance = scanner.nextDouble();
+                    }
+                    else{
+                        balance = 0;
+                    };
                     scanner.nextLine();
                     System.out.println("What type of account do you want to add?");
                     System.out.println("1. Current Account");
@@ -52,7 +61,6 @@ public class Main {
                     break;
 
                 case 2:
-                    found = false;
                     System.out.println("Enter account id: ");
                     id = scanner.nextLine();
                     for (int i = 0; i < accountCount; i++) {
@@ -68,7 +76,6 @@ public class Main {
                     break;
 
                 case 3:
-                    found = false;
                     System.out.println("Enter account id: ");
                     id = scanner.nextLine();
                     System.out.println("Enter balance to debit: ");
@@ -88,7 +95,6 @@ public class Main {
                     }
                     break;
                 case 4:
-                    found = false;
                     System.out.println("Enter account id: ");
                     id = scanner.nextLine();
                     System.out.println("Enter amount to credit: ");
@@ -143,7 +149,7 @@ public class Main {
                     }
                     if (found1 && found2) {
                         System.out.println("Enter amount to transfer: ");
-                        double amount = scanner.nextDouble();
+                        int amount = scanner.nextInt();
                         scanner.nextLine();
                         accounts[index1].transferTo(accounts[index2], amount);
                         System.out.println("Transfer Successful");
